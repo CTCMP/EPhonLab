@@ -1,4 +1,4 @@
-"""Define EPhonLab version."""
+"""EPhonLab main class."""
 
 # Copyright (C) 2020 Atsushi Togo
 # All rights reserved.
@@ -34,4 +34,16 @@
 # ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 
-__version__ = "0.0.1"
+from __future__ import annotations
+
+import copy
+import dataclasses
+import os
+import warnings
+from collections.abc import Sequence
+
+import numpy as np
+from numpy.typing import NDArray
+
+
+

@@ -1,4 +1,4 @@
-"""Define EPhonLab version."""
+"""k/q mesh tools"""
 
 # Copyright (C) 2026 Xianyong Ding
 # All rights reserved.
@@ -34,4 +34,23 @@
 # ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 
-__version__ = "0.0.1"
+from __future__ import annotations
+
+import dataclasses
+
+import warnings
+from collections.abc import Sequence
+from typing import Literal, cast
+
+@dataclasses.dataclass(frozen=True)
+class GridSymmetryDataset:
+    """Symmetry dataset for grid generation."""
+
+    rotations: NDArray[np.int64]
+    translations: NDArray[np.double]
+    transformation_matrix: NDArray[np.double]
+    std_lattice: NDArray[np.double]
+    std_types: NDArray[np.int64]
+    hall_number: int
+
+
