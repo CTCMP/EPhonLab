@@ -1,6 +1,6 @@
 """Define EPhonLab version."""
 
-# Copyright (C) 2020 Atsushi Togo
+# Copyright (C) 2026 Xianyong Ding
 # All rights reserved.
 #
 # This file is part of EPhonLab.
