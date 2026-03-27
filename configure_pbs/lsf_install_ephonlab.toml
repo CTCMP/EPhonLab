@@ -1,27 +1,28 @@
-# configure the calculation settings
-[calculation]
-total_cores = 40  # default setting
-cal_nodes = "node01"
-cal_order = "mpirun -np {total_cores}"
+# configure calculation order
+[calculations]
+cal_order = "mpirun -np"
 
 # configure the software path
 [software_paths]
-QE_path = "/share/home/jinxin/soft/QE/q-e-qe-7.2/bin"
-# QE_path = "/share/home/jinxin/soft/QE/qe-7.0/bin"
-python_path = "/share/home/jinxin/dxy/soft/miniconda39/bin/python"
-presudo_path = "/share/home/jinxin/soft/QE/POT"
-third_order_path = "/share/home/jinxin/soft/shengbte/thirdorder"
-shengbte_path = "/share/home/jinxin/soft/shengbte/FourPhonon-main"
-perturbo_path = "/share/home/jinxin/soft/QE/q-e-qe-7.2/perturbo-2.2.0/bin"
+QE = "/share/home/jinxin/soft/QE/q-e-qe-7.2/bin"
+# QE = "/share/home/jinxin/soft/QE/qe-7.0/bin"
+python = "/share/home/jinxin/dxy/soft/miniconda39/bin/python"
+third_order = "/share/home/jinxin/soft/shengbte/thirdorder"
+shengbte = "/share/home/jinxin/soft/shengbte/FourPhonon-main"
+perturbo = "/share/home/jinxin/soft/QE/q-e-qe-7.2/perturbo-2.2.0/bin"
+
+#configure the pseudo_paths
+[pseudo_paths]
+psesudo = "/share/home/jinxin/soft/QE/POT"
 
 # configure the submission scripts
 [submit_scripts]
 template = """
 #!/bin/sh
-#PBS -N w90
+#PBS -N {job_name}
 #PBS -j oe
 #PBS -q workq
-#PBS -l select=1:ncpus={num_process}:host={cal_nodes}:mpiprocs={num_process}
+#PBS -l select=1:ncpus={num_cores}:host={cal_nodes}:mpiprocs={num_cores}
 #PBS -V
 cd $PBS_O_WORKDIR
 
