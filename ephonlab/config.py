@@ -1,4 +1,4 @@
-"""Define EPhonLab version."""
+"""configure submit script."""
 
 # Copyright (C) 2026 Xianyong Ding
 # All rights reserved.
@@ -144,7 +144,7 @@ class Config:
         
         return script
     
-    def save(self, filename="submit.pbs"):
+    def save(self, filename="submit.sh"):
         """save submit file"""
         script = self.get_sub_prefix()
         split_str ="#######################################################"
@@ -161,7 +161,7 @@ class Config:
             f.write(script)
             f.write('echo -n "End time  " >> time\ndate >> time')
         os.chmod(filename, 0o755)
-        print(f"save submit file: {filename}")
+        print(f"Submit script saved to : {filename}")
 
 # if __name__ == '__main__':
 #     config = Config()

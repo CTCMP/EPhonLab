@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ephonlab" 
+version = "0.0.1"
+description = "phonon and electrical transport properties calculation tools"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "numpy>=1.20", 
+    "scipy",
+    "pandas",
+    "matplotlib>=2.2.2",
+]
+license = "BSD-3-Clause"
+license-files = ["LICENSE"]
+
+
+[project.scripts]
+ephonlab = "EPhonLab.main:main_func"
+ephonlab_ele=""
